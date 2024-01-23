@@ -5,7 +5,9 @@
 #ifndef _M_STAND
 #define _M_STAND
 
+#ifndef MERGED
 #define MERGED		1
+#endif
 #define GEMINI		MERGED
 #define STANDALONE	(!MERGED)
 

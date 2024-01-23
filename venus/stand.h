@@ -7,7 +7,9 @@
 #ifndef __stand__
 #define __stand__
 
+#ifndef MERGED
 #define MERGED		1
+#endif
 #define STANDALONE	(!MERGED)
 
 #include "..\mupfel\comm.h"

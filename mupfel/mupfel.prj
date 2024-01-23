@@ -1,7 +1,8 @@
 ; Mupfel Project File (Standalone Version)
 ; 05.11.90
-mupfel.app
+mupfel.tos
 .C[-P -N]
+.C[-DMERGED=0]
 .L[-S=10000]
 =
 tcstart.o
@@ -31,8 +32,8 @@ errfile.c (errfile.h,getopt.h,handle.h)
 exec.c (alert.h,alias.h,alloc.h,batch.h,check.h,curdir.h,comm.h,environ.h,exec.h,exit.h,fkey.h,gemsubs.h,hash.h,imv.h,parse.h,redir.h,shellvar.h,stand.h,sysvec.h,toserr.h,vt52.h)
 exit.c (alias.h,alloc.h,batch.h,errfile.h,exit.h,curdir.h,comm.h,environ.h,fkey.h,gemsubs.h,hash.h,lineedit.h,redir.h,shellvar.h,shrink.h,stand.h,sysvec.h,toserr.h,version.h)
 expand.c (alloc.h,attrib.h,expand.h,mkargcv.h,wildmat.h)
-; file.c (chmod.h,handle.h,strsel.h)
 fcomplet.c (alloc.h,attrib.h,chario.h,curdir.h,mupfel.h,shellvar.h)
+;file.c (chmod.h,handle.h,strsel.h)
 filebuf.c (alloc.h,filebuf.h)
 fkey.c (alloc.h,comm.h,fkey.h,imv.h,scan.h)
 format.c (attrib.h,comm.h,getopt.h,init.h,stand.h,toserr.h,version.h)

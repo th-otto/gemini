@@ -1,5 +1,6 @@
 venus.app
 .L[-LGS=10000]
+.C[-DMERGED=0]
 .C[-P]
 =
 tcstart.o
