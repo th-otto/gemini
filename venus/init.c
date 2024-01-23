@@ -398,6 +398,7 @@ static int callFormat(int argc, char **argv)
 				argc, argv);
 #else
 	char command[128] = "";
+	int i;
 	
 	for (i = 0; i < argc; ++i)
 	{

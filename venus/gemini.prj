@@ -119,8 +119,8 @@ wintool.c  (vs.h, wintool.h)
 myalloc.c  (vs.h, venuserr.h, stand.h)
 
 ..\flydial\flydial.lib
-..\nls\nlslib.lib
-..\mupfel\mupfmrg.o
+..\nls\nls.prj
+..\mupfel\mupfmrg.prj
 tcstdlib.lib
 tcgemlib.lib
 tctoslib.lib

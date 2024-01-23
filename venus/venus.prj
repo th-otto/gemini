@@ -52,6 +52,7 @@ wintool.c  (vs.h, wintool.h)
 myalloc.c  (vs.h, venuserr.h, stand.h)
 
 ..\flydial\flydial.lib
+..\nls\nls.prj
 tcstdlib.lib
 tctoslib.lib
 tcgemlib.lib

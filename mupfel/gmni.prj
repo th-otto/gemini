@@ -5,9 +5,9 @@
 .L[-S=10000]
 =
 tcstart.o
-..\venus\venusmrg.o
+..\venus\venusmrg.prj
 ..\flydial\flydial.lib
-..\nls\nlslib.lib
+..\nls\nls.prj
 
 alert.c (alert.h,stand.h)
 alias.c (alias.h,alloc.h,imv.h,linklist.h)

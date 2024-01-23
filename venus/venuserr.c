@@ -154,7 +154,7 @@ word changeDisk(const char drive,const char *label)
 
 void sysError(word errnumber)
 {
-	char *message = NULL;
+	const char *message = NULL;
 
 #if MERGED
 	(void)errnumber;
@@ -215,7 +215,7 @@ void sysError(word errnumber)
 	if (message)
 	{
 		if (message[strlen(message)-1] == '\n')
-			message[strlen(message)-1] = '\0';
+			((char *)message)[strlen(message)-1] = '\0'; /* ugly hack */
 		venusErr(message);
 	}
 }

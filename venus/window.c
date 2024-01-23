@@ -181,7 +181,9 @@ void setWpOnTop(word whandle)
 		cp->nextwind = wnull.nextwind;
 		wnull.nextwind = cp;
 	}
+#if MERGED
 	SetTOPWIND();
+#endif
 }
 
 /*

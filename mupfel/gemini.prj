@@ -4,8 +4,8 @@
 .L[-S=10000]
 =
 tcstart.o
-..\venus\venusmrg.o
-..\mupfel\mupfmrg.o
+..\venus\venusmrg.prj
+..\mupfel\mupfmrg.prj
 ..\flydial\flydial.lib
 tcstdlib.lib
 tcgemlib.lib

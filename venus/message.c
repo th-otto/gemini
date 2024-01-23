@@ -472,10 +472,10 @@ static void copyObjectsFromAcc (word messbuff[8])
 
 word HandleMessage(word messbuff[8], word kstate)
 {
-	WindInfo *wp;
 	word ok = TRUE;
 	
 #if MERGED
+	WindInfo *wp;
 	if ((wp = getMupfWp()) != NULL)
 		moveMWindow(wp);	/* built new rectangle list */
 #endif

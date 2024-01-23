@@ -441,7 +441,7 @@ static void infoDriveDialog(IconInfo *pii, word objnr)
 			GrafMouse(HOURGLASS, NULL);
 			strcpy(newlabel, pfdiname);
 			makeFullName(newlabel);
-#ifdef MERGED
+#if MERGED
 			{
 				char *argv[3];
 				char drive[2];
