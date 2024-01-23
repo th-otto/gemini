@@ -8,8 +8,8 @@
 #include <tos.h>
 #include <stddef.h>
 #include <string.h>
-#include <flydial\flydial.h>
-#include <flydial\evntevnt.h>
+#include "../flydial/flydial.h"
+#include "../flydial/evntevnt.h"
 
 #include "vs.h"
 #include "menu.rh"

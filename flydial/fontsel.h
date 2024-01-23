@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <vdi.h>
 
-#include <flydial\listman.h>
+#include "../flydial/listman.h"
 
 typedef struct
 {

@@ -6,7 +6,7 @@
  */
 
 #include <string.h>
-#include <nls\nls.h>
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "menu.rh"

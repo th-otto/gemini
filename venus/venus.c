@@ -8,9 +8,9 @@
 
 #include <vdi.h>
 #include <string.h>
-#include <flydial\flydial.h>
-#include <flydial\evntevnt.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/evntevnt.h"
+#include "../nls/nls.h"
 #include <tos.h>
 
 #include "vs.h"

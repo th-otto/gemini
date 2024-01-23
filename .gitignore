@@ -1,0 +1,10 @@
+*.bak
+*.o
+*.a
+aaa.cfg
+*.pdb
+*.lib
+*.app
+*.prg
+*.tos
+*.ttp

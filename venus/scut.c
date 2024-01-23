@@ -7,7 +7,7 @@
  */
 
 #include <string.h>
-#include <flydial\flydial.h>
+#include "../flydial/flydial.h"
 
 #include "shortcut.rh"
 

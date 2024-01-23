@@ -42,7 +42,7 @@
 #define DEBUG 0
 
 #if MERGED
-#include "flydial\flydial.h"
+#include "../flydial/flydial.h"
 #endif
 
 SCCS(mupfel);

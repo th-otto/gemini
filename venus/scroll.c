@@ -7,7 +7,7 @@
 
 #include <ctype.h> 
 #include <vdi.h>
-#include <flydial\flydial.h>
+#include "../flydial/flydial.h"
 
 #include "vs.h"
 #include "menu.rh"

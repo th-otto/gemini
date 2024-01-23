@@ -19,7 +19,7 @@
 #include "vt52.h"
 
 #if MERGED
-#include "flydial\flydial.h"
+#include "../flydial/flydial.h"
 #define graf_mouse(x,y)	GrafMouse(x,y)
 #define wind_update(x)	WindUpdate(x)
 #endif

@@ -8,9 +8,9 @@
  
 #include <stdlib.h>
 #include <string.h>
-#include <flydial\flydial.h>
-#include <flydial\listman.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/listman.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "rulebox.rh"

@@ -9,8 +9,8 @@
 #include <vdi.h>
 #include <string.h>
 #include <limits.h>
-#include <flydial\flydial.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "util.h"

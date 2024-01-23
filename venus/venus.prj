@@ -1,5 +1,6 @@
-\tc\venus.app
-.L[-LGS=10000].C[-P]
+venus.app
+.L[-LGS=10000]
+.C[-P]
 =
 tcstart.o
 accwind.c  (vs.h, accwind.h, myalloc.h, venuserr.h, util.h, window.h)
@@ -49,7 +50,7 @@ window.c   (stdbox.rh, vs.h, window.h, fileutil.h, util.h, myalloc.h, undo.h, fi
 wintool.c  (vs.h, wintool.h)
 myalloc.c  (vs.h, venuserr.h, stand.h)
 
-flydial\flydial.lib
+..\flydial\flydial.lib
 tcstdlib.lib
 tctoslib.lib
 tcgemlib.lib

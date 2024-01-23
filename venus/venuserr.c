@@ -6,8 +6,8 @@
 
 #include <string.h>
 #include <aes.h>
-#include <flydial\flydial.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "changbox.rh"

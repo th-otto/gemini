@@ -1,4 +1,4 @@
-\tc\gemini.app
+..\gemini.app
 .C[-P]
 .L[-S=10000]
 =
@@ -118,9 +118,9 @@ window.c   (stdbox.rh, vs.h, window.h, fileutil.h, util.h, myalloc.h,
 wintool.c  (vs.h, wintool.h)
 myalloc.c  (vs.h, venuserr.h, stand.h)
 
-flydial\flydial.lib
-nls\nlslib.lib
-\tc\mupfel\mupfmrg.o
+..\flydial\flydial.lib
+..\nls\nlslib.lib
+..\mupfel\mupfmrg.o
 tcstdlib.lib
 tcgemlib.lib
 tctoslib.lib

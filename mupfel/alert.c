@@ -32,7 +32,7 @@
 #endif
 
 #if MERGED
-#include "flydial\flydial.h"
+#include "../flydial/flydial.h"
 #define ILLCHARS "\n"
 #else
 #define ILLCHARS "[]|\n"

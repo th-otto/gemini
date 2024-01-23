@@ -1,6 +1,6 @@
 ; GMNIBOOT.PRJ  -  make GBOOTxxx.APP
 ; 30.03.90
-d:\tc\gboot001.app
+gboot001.app
 =
 tcstart.o
 gmniboot.c

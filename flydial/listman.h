@@ -9,7 +9,7 @@
 
 #include <aes.h>
 
-#include <flydial\slid.h>
+#include "../flydial/slid.h"
 
 typedef struct listspec
 {

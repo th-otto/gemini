@@ -17,9 +17,9 @@
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-#include <flydial\flydial.h>
-#include <flydial\listman.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/listman.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "instbox.rh"

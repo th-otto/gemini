@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <aes.h>
-#include <flydial\flydial.h>
+#include "../flydial/flydial.h"
 
 #include "vs.h"
 #include "myalloc.h"

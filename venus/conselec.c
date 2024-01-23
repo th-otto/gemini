@@ -11,9 +11,9 @@
 #include <vdi.h>
 #include <aes.h>
 #include <tos.h>
-#include <flydial\flydial.h>
-#include <flydial\clip.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/clip.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "stand.h"

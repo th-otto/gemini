@@ -15,7 +15,7 @@
 #include <string.h>
 
 #include "vs.h"
-#include "implimits.h"
+#include "implimit.h"
 #include "ascii.h"
 #include "termio.h"
 #include "terminal.h"

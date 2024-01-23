@@ -21,7 +21,7 @@
 #include "stand.h"
 #include "vt52.h"
 #include "lineedit.h"
-#include "flydial\flydial.h"
+#include "../flydial/flydial.h"
 
 #if STANDALONE
 #error why compile MVENUS.C when STANDALONE==1 ?

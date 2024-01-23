@@ -8,8 +8,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <vdi.h>
-#include <flydial\flydial.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "init.h"

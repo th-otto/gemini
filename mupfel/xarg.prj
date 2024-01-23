@@ -1,5 +1,6 @@
 xarg.ttp
-.L[-LG] =
+.L[-LG]
+=
 tcstart.o
 xarg.c
 tcstdlib.lib

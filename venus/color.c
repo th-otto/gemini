@@ -7,7 +7,7 @@
  
 #include <stdlib.h>
 #include <string.h>
-#include <flydial\flydial.h>
+#include "../flydial/flydial.h"
 
 #include "vs.h"
 #include "color.h"

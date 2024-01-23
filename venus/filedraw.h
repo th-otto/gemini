@@ -13,7 +13,7 @@
 #ifndef __filedraw__
 #define __filedraw__
 
-#include <flydial\flydial.h>
+#include "../flydial/flydial.h"
 
 
 extern word ff_wchar, ff_hchar;

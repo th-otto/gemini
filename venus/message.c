@@ -10,9 +10,9 @@
 
 #include <string.h>
 #include <aes.h>
-#include <flydial\flydial.h>
-#include <flydial\evntevnt.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/evntevnt.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "vaproto.h"

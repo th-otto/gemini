@@ -9,8 +9,8 @@
 #include <setjmp.h>
 #include <string.h>
 #include <tos.h>
-#include <flydial\flydial.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "copybox.rh"

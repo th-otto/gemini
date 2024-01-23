@@ -8,8 +8,8 @@
 
 #include <stddef.h>
 #include <string.h>
-#include <flydial\flydial.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "ttpbox.rh"

@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <nls\nls.h>
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "fileutil.h"

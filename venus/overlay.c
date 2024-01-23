@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <tos.h>
-#include <nls\nls.h>
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "overlay.h"

@@ -7,9 +7,9 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <flydial\flydial.h>
-#include <flydial\fontsel.h>
-#include <nls\nls.h>
+#include "../flydial/flydial.h"
+#include "../flydial/fontsel.h"
+#include "../nls/nls.h"
 
 #include "vs.h"
 #include "fontbox.rh"
@@ -17,8 +17,8 @@
 #include "window.h"
 #include "venuserr.h"
 #include "util.h"
-#include "..\mupfel\environ.h"
-#include "..\mupfel\gemsubs.h"
+#include "../mupfel/environ.h"
+#include "../mupfel/gemsubs.h"
 
 #include "mvwindow.h"
 #include "terminal.h"
