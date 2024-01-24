@@ -20,8 +20,7 @@ typedef struct
 } SLIDERSPEC;
 
 /* malt den Slider <s> im Rechteck xc, yc,... */
-void SlidDraw (SLIDERSPEC *s, int xc, int yc, int wc, int hc, 
-		int redraw);
+void SlidDraw (SLIDERSPEC *s, int xc, int yc, int wc, int hc, int redraw);
 
 void SlidDrCompleted (SLIDERSPEC *s);
 

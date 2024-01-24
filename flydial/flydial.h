@@ -8,7 +8,7 @@
 #ifndef __FLYDIAL__
 #define __FLYDIAL__
 
-#if MSDOS
+#if defined(__MSDOS__)
 #	include "vdi.h"
 #	include "aes.h"
 #else
@@ -67,30 +67,7 @@ int RastDiskSave(RDB *rdb, int x, int y, int w, int h);
 /* DOS-only: retrieve a part of the screen from disk */
 int RastDiskRestore(RDB *rdb, int x, int y, int w, int h);
 
-/* Grî·e eines Bildschirmausschnitts in Bytes */
-unsigned long RastSize (int w, int h, MFDB *TheBuf);
-
-/* Bildschirmausschnitt in Buffer speichern */
-void RastSave (int x, int y, int w, int h, int dx, int dy,
-	MFDB *TheBuf);
-
-/* Bildschirmausschnitt aus Buffer zurÅckholen */
-void RastRestore (int x, int y, int w, int h, int sx, int sy, MFDB *TheBuf);
-
-void RastBufCopy (int sx, int sy, int w, int h, int dx, int dy, MFDB *TheBuf );
-
-/* Setze udsty auf eine so gepunktete Linie, daû bei einem grauen
-   Desktophintergrund eine schwarze Linie erscheint (xy[]: Anfangs-
-   und Endpunkt der Linie */
-void RastSetDotStyle (int ha, int *xy);
-
-/* Malt gepunktetes Rechteck */
-void RastDotRect (int ha, int x, int y, int w, int h);
-
-void RastDrawRect (int ha, int x, int y, int w, int h);
-void RastTrans (void *saddr, int swb, int h, int handle);
 void RastGetQSB(void **qsbAddr, int *qsbSize);
-
 
 /*
 	ersetzt form_alert (locker)
@@ -103,8 +80,7 @@ void RastGetQSB(void **qsbAddr, int *qsbSize);
 				vorangestelltes '[' gekennzeichnet.
 */
 
-int DialAlert (BITBLK *Image, const char *String, int Default,
-	const char *Buttons);
+int DialAlert (BITBLK *Image, const char *String, int Default, const char *Buttons);
 
 
 
@@ -115,8 +91,9 @@ int DialAlert (BITBLK *Image, const char *String, int Default,
 	Durations:	Zeiger auf Liste von Warteintervallen (ms)
 */
 
-int DialAnimAlert (BITBLK **Image, int *Durations, char *String,
-	int Default, const char *Buttons);
+int DialAnimAlert (BITBLK **Image, int *Durations, const char *String, int Default, const char *Buttons);
+
+int DialSuccess(void);
 
 typedef struct
 {
@@ -162,14 +139,14 @@ int DialDo (DIALINFO *D, int *StartOb);
 
 void DialDraw (DIALINFO *D);
 
-void DialCenter (OBJECT *D);
+void DialCenter (OBJECT *tree);
 
 /*
 	Initialisiert bzw. deinitialisiert die Dial-Routinen
 	malloc() und free() sind jetzt konfigurierbar, zB
 	DialInit (malloc, free);
 */
-int DialInit (void *, void *);
+int DialInit (void *mallocfunc, void *freefunc);
 
 
 void DialExit (void);
@@ -182,8 +159,7 @@ void DialExit (void);
 */
 
 int FormButton (OBJECT *tree, int obj, int clicks, int *nextobj);
-int FormKeybd (OBJECT *tree, int edit_obj, int next_obj, int kr,
-	int ks, int *onext_obj, int *okr);
+int FormKeybd (OBJECT *tree, int edit_obj, int next_obj, int key, int kstate, int *onext_obj, int *okr);
 int FormXDo (OBJECT *tree, int *startfld);
 int FormDo (OBJECT *tree, int startfld);
 
@@ -192,13 +168,12 @@ int FormDo (OBJECT *tree, int startfld);
 	Installiert einen neuen Keyboard-Handler in FormDo
 */
 
-typedef int (*FORMKEYFUNC) (OBJECT *, int, int, int, int, int *, int *);
+typedef int (*FORMKEYFUNC) (OBJECT *, int edit_obj, int next_obj, int key, int ks, int *onext_obj, int *okey);
 void FormSetFormKeybd (FORMKEYFUNC fun);
 FORMKEYFUNC FormGetFormKeybd (void);
 
-typedef int (*VALFUN)(OBJECT *tree, int ob, int *chr, int *shift,
-	int idx);
-void FormSetValidator (char *valchars, VALFUN *funs);
+typedef int (*VALFUN)(OBJECT *tree, int ob, int *chr, int *shift, int idx);
+void FormSetValidator (const char *valchars, VALFUN *funs);
 
 
 extern int HandStdWorkIn[];
@@ -271,30 +246,30 @@ typedef struct
 
 */ 
 
-#if __MSDOS__
+#if defined(__MSDOS__)
 VOID ObjcMyButton(VOID);
 VOID ObjcAnimImage(VOID);
 #else
-int cdecl ObjcMyButton (PARMBLK *p);
-int cdecl ObjcAnimImage (PARMBLK *p);
+int cdecl ObjcMyButton (PARMBLK *pb);
+int cdecl ObjcAnimImage (PARMBLK *pb);
 #endif
 
-int ObjcChange (OBJECT *tree, int obj, int resvd, int cx, int cy,
-				int cw, int ch, int newstate, int redraw);
+void ObjcInit(void); /* private; will be called by DialInit() */
+int ObjcChange (OBJECT *tree, int obj, int resvd, int cx, int cy, int cw, int ch, int newstate, int redraw);
 void ObjcXywh (OBJECT *tree, int obj, GRECT *p);
 void ObjcToggle (OBJECT *tree, int obj);
 int ObjcGParent (OBJECT *tree, int obj);
 void ObjcDsel (OBJECT *tree, int obj);
 void ObjcSel (OBJECT *tree, int obj);
-int ObjcDraw (OBJECT *tree, int startob, int depth, int xclip,
-	int yclip, int wclip, int hclip);
+int ObjcDraw (OBJECT *tree, int startob, int depth, int xclip, int yclip, int wclip, int hclip);
 int ObjcTreeInit (OBJECT *tree);
 int ObjcRemoveTree (OBJECT *tree);
-int ObjcOffset (OBJECT *tree, int oby, int *x, int *y);
+int ObjcOffset (OBJECT *tree, int obj, int *x, int *y);
 OBSPEC *ObjcGetObspec (OBJECT *tree, int index);
+int ObjcDeepDraw(void);
 
 /*
-	Dier vertikalen Koordinaten der Objekte im Baum werden mit
+	Die vertikalen Koordinaten der Objekte im Baum werden mit
 	a/b multipliziert. 1.5-zeiliger Zeilenabstand also mittels
 	a=3, b=2. Ansehen!
 */
@@ -302,7 +277,7 @@ void ObjcVStretch (OBJECT *tree, int ob, int a, int b);
 
 
 
-#define FLYDIALMAGIC	'FLYD'
+#define FLYDIALMAGIC 0x464C5944L /* 'FLYD' */
 
 typedef struct
 {
@@ -316,11 +291,10 @@ typedef struct
 void PoppInit (void);		/* tut das Offensichtliche */
 void PoppExit (void);		/* ebenso */
 void PoppResult (OBJECT **Tree, int *obj);
-void PoppChain (OBJECT *ParentTree, int ParentOb,
-				OBJECT *SubTree, int ChildOb, MENUSPEC *TMe);
-				/* entweder muû ein Zeiger (auf eine zu fuellende
+void PoppChain (OBJECT *ParentTree, int ParentOb, OBJECT *SubTree, int ChildOb, MENUSPEC *TMe);
+				/* entweder muû ein Zeiger auf eine zu fuellende
 				MENUSPEC-Struktur Åbergeben werden, oder NULL
-				(dann wird der benoetigte Speicher gemalloct */
+				(dann wird der benoetigte Speicher gemalloct) */
 void PoppUp (OBJECT *Tree, int x, int y, OBJECT **ResTree, int *resob);
 
 
@@ -336,43 +310,49 @@ void MenuTune (OBJECT *tree, int tune);
 unsigned long RastSize (int w, int h, MFDB *TheBuf);
 
 /* Bildschirmausschnitt in Buffer speichern */
-void RastSave (int x, int y, int w, int h, int dx, int dy,
-	MFDB *TheBuf);
+void RastSave (int x, int y, int w, int h, int dx, int dy, MFDB *TheBuf);
 
 /* Bildschirmausschnitt aus Buffer zurÅckholen */
 void RastRestore (int x, int y, int w, int h, int sx, int sy, MFDB *TheBuf);
 
-void RastBufCopy (int sx, int sy, int w, int h, int dx, int dy, MFDB *TheBuf );
+void RastBufCopy (int sx, int sy, int w, int h, int dx, int dy, MFDB *TheBuf);
 
 /* Setze udsty auf eine so gepunktete Linie, daû bei einem grauen
    Desktophintergrund eine schwarze Linie erscheint (xy[]: Anfangs-
    und Endpunkt der Linie */
-void RastSetDotStyle (int ha, int *xy);
+void RastSetDotStyle (int handle, int *xy);
 
 /* Malt gepunktetes Rechteck */
-void RastDotRect (int ha, int x, int y, int w, int h);
+void RastDotRect (int handle, int x, int y, int w, int h);
 
-void RastDrawRect (int ha, int x, int y, int w, int h);
+void RastDrawRect (int handle, int x, int y, int w, int h);
 void RastTrans (void *saddr, int swb, int h, int handle);
 
 
 void RectAES2VDI (int x, int y, int w, int h, int *xy);
-void RectGRECT2VDI (GRECT *g, int *xy);
+void RectGRECT2VDI (const GRECT *g, int *xy);
 
 int RectInter (int x1,int y1,int w1,int h1,int x2,int y2,int w2,int h2,
 		  int *x3,int *y3,int *w3,int *h3);
 
 int RectOnScreen (int x, int y, int w, int h);
 int RectInside (int x, int y, int w, int h, int x2, int y2);
-int RectGInter (GRECT *a, GRECT *b, GRECT *c);
-void RectClipWithScreen (GRECT *g);
+int RectGInter (const GRECT *a, const GRECT *b, GRECT *c);
+int RectClipWithScreen (GRECT *g);
 
-extern BITBLK *ImQuestionMark (void), *ImHand (void), *ImInfo (void);
-extern BITBLK *ImFinger (void), *ImBomb (void);
-extern BITBLK *ImPrinter (void), *ImDisk (void), *ImDrive (void);
-extern BITBLK *ImExclamation (void), *ImSignQuestion (void);
-extern BITBLK *ImSignStop (void), *ImSqExclamation (void);
-extern BITBLK *ImSqQuestionMark (void);
+BITBLK *ImQuestionMark (void);
+BITBLK *ImHand (void);
+BITBLK *ImInfo (void);
+BITBLK *ImFinger (void);
+BITBLK *ImBomb (void);
+BITBLK *ImPrinter (void);
+BITBLK *ImDisk (void);
+BITBLK *ImDrive (void);
+BITBLK *ImExclamation (void);
+BITBLK *ImSignQuestion (void);
+BITBLK *ImSignStop (void);
+BITBLK *ImSqExclamation (void);
+BITBLK *ImSqQuestionMark (void);
 
 
 void WindUpdate (int mode);
@@ -412,7 +392,7 @@ platz).
 
 /*
 	Box, ob: Tree und Objekt des betr. Knopfes
-	Poppup: Tree mit dem Popup-MenÅ
+	Popup: Tree mit dem Popup-MenÅ
 	docheck: 1: aktuellen Wert mit Haken versehen
 	docycle: 0: Popup, -1: einen Wert zurÅck, 1: einen Wert vor
 					-2: cyclen
@@ -420,8 +400,7 @@ platz).
 	returns: sel. Objekt bzw. -1
 */
 
-int JazzSelect (OBJECT *Box, int ob, OBJECT *Poppup, int docheck,
-	int docycle, long *obs);
+int JazzSelect (OBJECT *Box, int ob, OBJECT *Popup, int docheck, int docycle, long *obs);
 
 
 typedef struct
@@ -454,7 +433,7 @@ void FontLoad (FONTWORK *fwork);
  * Baut die Liste list in fwork auf, falls noch nicht besetzt.
  * Bei RÅckgabe von FALSE hat das Ganze nicht geklappt.
  */ 
-int  FontGetList (FONTWORK *fwork, int test_prop, int test_fsm);
+int FontGetList (FONTWORK *fwork, int test_prop, int test_fsm);
 /* Liste ist readonly */
 
 /* Deinstalliert die Fonts auf der Workstation handle und gibt,
@@ -469,8 +448,7 @@ int FontSetPoint (FONTWORK *F, int handle, int id, int point,
 /* Feststellen, ob FSM-Font */
 int FontIsFSM (FONTWORK *F, int id);
 
-int vst_arbpt (int handle, int point, int *char_width, 
-	int *char_height, int *cell_width, int *cell_height);
+int vst_arbpt (int handle, int point, int *char_width,  int *char_height, int *cell_width, int *cell_height);
 void vqt_devinfo (int handle, int devnum, int *devexists, char *devstr);
 
 

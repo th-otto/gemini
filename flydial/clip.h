@@ -24,4 +24,4 @@ int ClipFindFile (const char *Extension, char *Filename);
 	L”scht alle SCRAP-Dateien
 */
 
-int ClipClear (char *not);
+int ClipClear (const char *not);

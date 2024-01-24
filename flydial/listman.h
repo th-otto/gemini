@@ -131,12 +131,13 @@ void ListDraw (LISTINFO *L);
 long ListClick (LISTINFO *L, int clicks);
 void ListExit(LISTINFO *L);
 void ListVScroll(LISTINFO *L, long Lines);
-void ListWindDraw (LISTINFO *L, GRECT *G, int fullredraw);
+void ListHScroll(LISTINFO *L, int columns);
+void ListWindDraw (LISTINFO *L, const GRECT *G, int fullredraw);
 LISTSPEC *ListIndex2List (LISTSPEC *list, long index);
 
 void ListStdInit (LISTINFO *L, OBJECT *tree, int box1, int box2, 
-	void (*drawfunc)(LISTSPEC *l, int x, int y, int offset,
-	GRECT *cliprect, int how), LISTSPEC *list, int maxwidth, long startindex,
+	void (*drawfunc)(LISTSPEC *l, int x, int y, int offset, GRECT *cliprect, int how),
+	LISTSPEC *list, int maxwidth, long startindex,
 	int selectionservice);
 void ListScroll2Selection (LISTINFO *L);
 void ListUpdateEntry (LISTINFO *L, long entry);

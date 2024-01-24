@@ -1,0 +1,45 @@
+flydial.lib
+.C[-P]
+.C[-M-]
+.C[-G-]
+.L[-J]
+=
+clip.c
+menu.c
+wind.c
+alert.c [-G]
+dial.c
+form.c [-G]
+jazz.c
+objc.c [-G]
+rast.c
+rect.c
+hand.c
+font.c [-G]
+graf.c
+
+; compiled seperately, because Pure-C otherwise
+; pulls in all the data
+imquest.c
+imhand.c
+iminfo.c
+imfinger.c
+imbomb.c
+imprint.c
+imdrive.c
+imdisk.c
+imexcl.c
+imsignq.c
+imsigns.c
+imsquest.c
+imsexcl.c
+
+evntevnt.c
+vdi.c
+arbpt.c
+devinfo.c
+
+slid.c
+list.c [-G]
+fontsel.c [-G]
+
