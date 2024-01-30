@@ -118,7 +118,7 @@ window.c   (stdbox.rh, vs.h, window.h, fileutil.h, util.h, myalloc.h,
 wintool.c  (vs.h, wintool.h)
 myalloc.c  (vs.h, venuserr.h, stand.h)
 
-..\flydial\flydial.lib
+..\flydial\flydial.prj
 ..\nls\nls.prj
 ..\mupfel\mupfmrg.prj
 tcstdlib.lib

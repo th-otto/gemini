@@ -6,7 +6,7 @@
 tcstart.o
 ..\venus\venusmrg.prj
 ..\mupfel\mupfmrg.prj
-..\flydial\flydial.lib
+..\flydial\flydial.prj
 tcstdlib.lib
 tcgemlib.lib
 tctoslib.lib

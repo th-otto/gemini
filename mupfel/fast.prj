@@ -6,7 +6,7 @@
 =
 tcstart.o
 ..\venus\venusmrg.o
-..\flydial\flydial.lib
+..\flydial\flydial.prj
 ..\nls\nlslib.lib
 
 alert.c 

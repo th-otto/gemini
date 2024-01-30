@@ -142,8 +142,7 @@ int DialExStart(OBJECT *tree, DIALINFO *d, int use_qsb)
 	d->h += d->offset;
 	d->offset >>= 1;
 	memsize = RastSize(d->w, d->h, &d->Buffer);
-	addr = NULL;
-	d->Buffer.fd_addr = addr;
+	d->Buffer.fd_addr = addr = NULL;
 	if (RectOnScreen(d->x, d->y, d->w, d->h))
 		d->Buffer.fd_addr = addr = dialmalloc(memsize);
 	if (addr == NULL)
@@ -190,6 +189,12 @@ void DialEnd(DIALINFO *d)
 
 /*** ---------------------------------------------------------------------- ***/
 
+/*
+ * XXX
+ * a4 -> a5
+ * a5 -> a6
+ * uses a4 for address of handle
+ */
 int DialMove(DIALINFO *d, int sx, int sy, int sw, int sh)
 {
 	int x;
@@ -231,13 +236,13 @@ int DialMove(DIALINFO *d, int sx, int sy, int sw, int sh)
 		RectAES2VDI(sx, sy, sw, sh, pxy);
 		vs_clip(HandAES, TRUE, pxy);
 	}
-	if (d->Buffer.fd_addr == NULL) /* XXX was: bhi */
+	if (d->Buffer.fd_addr <= 0) /* FIXME: pointer comparison */
 	{
 		v_clsvwk(handle);
 		return FALSE;
 	}
 	dest.fd_addr = dialmalloc(RastSize(w, h, &dest));
-	if (dest.fd_addr == NULL) /* XXX was: bhi */
+	if (dest.fd_addr <= 0) /* FIXME: pointer comparison */
 	{
 		/* BUG: workstation not closed */
 		return FALSE;

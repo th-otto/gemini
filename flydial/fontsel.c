@@ -59,7 +59,7 @@ static void drawsize(LISTSPEC *list, int x, int y, int offset, GRECT *clip, int 
 	{
 		if (how & 1)
 		{
-			sprintf(buf, " %d", (int)(long)list->entry);
+			sprintf(buf, " %2d", (int)(long)list->entry);
 			vswr_mode(DialWk, MD_TRANS);
 			vst_alignment(DialWk, 0, 5, &dummy, &dummy);
 			vst_effects(DialWk, 0);

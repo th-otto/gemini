@@ -57,7 +57,7 @@ static void tune_tree(OBJECT *tree, int parent, int tune)
 	} while (idx != parent);
 	if (tune)
 	{
-		tree[idx].ob_width -= (&HandYSize)[-1]; /* XXX */
+		tree[idx].ob_width -= HandXSize;
 	}
 }
 

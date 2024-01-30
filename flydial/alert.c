@@ -58,6 +58,12 @@ static const char *split_string(const char *str)
 
 /*** ---------------------------------------------------------------------- ***/
 
+/*
+ * XXX
+ * d4 -> d6
+ * d6 -> d7
+ * d7 -> d4
+ */
 int DialAlert(BITBLK *Image, const char *String, int Default, const char *Buttons)
 {
 	int max_buttonlen;

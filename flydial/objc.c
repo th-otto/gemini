@@ -58,7 +58,7 @@ static struct button_image cycle_images[2] = {
 };
 
 static MFDB screen_mfdb = { NULL, 0, 0, 0, 0, 0, 0, 0, 0 };
-static int (cdecl *draw_cycle_func)(PARMBLK *pb) = 0;
+static USERBLK draw_cycle_user = { 0, 0 };
 
 #define DIM(x) (int)(sizeof(x)/sizeof(x[0]))
 
@@ -297,7 +297,7 @@ static void draw_string(int x, int y, char *str, int underline, int state)
 	vst_effects(DialWk, state & DISABLED ? 2 : 0);
 	v_gtext(DialWk, x, y, str);
 	if (state & CHECKED)
-		v_gtext(DialWk, x, y, "\000\010"); /* BUG? why \0? */
+		v_gtext(DialWk, x, y, "\000\070"); /* BUG? why \0? */
 	if (underline != -1)
 	{
 		c[0] = str[underline];
@@ -505,9 +505,9 @@ void ObjcInit(void)
 		{
 			cycle_image = cycle_images[i];
 			RastTrans(cycle_image.unselected->fd_addr, cycle_image.unselected->fd_wdwidth * 2, cycle_image.unselected->fd_h, DialWk);
-			draw_cycle_func = draw_cycle_images;
+			draw_cycle_user.ub_code = draw_cycle_images;
 			/*
-			 * BUG: draw_cycle_func undefined if no match found
+			 * BUG: draw_cycle_user.ub_code undefined if no match found
 			 */
 		}
 	}
@@ -598,7 +598,7 @@ int ObjcTreeInit(OBJECT *tree)
 			{
 				tree[obj].ob_type &= 0xff00;
 				tree[obj].ob_type |= G_USERDEF;
-				tree[obj].ob_spec.userblk = (USERBLK *)&draw_cycle_func; /* FIXME: ugly cast */
+				tree[obj].ob_spec.userblk = &draw_cycle_user;
 			} else
 			{
 				tree[obj].ob_width--;

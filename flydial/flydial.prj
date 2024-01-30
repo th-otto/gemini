@@ -1,21 +1,21 @@
 flydial.lib
 .C[-P]
 .C[-M-]
-.C[-G-]
+.C[-G]
 .L[-J]
 =
 clip.c
 menu.c
 wind.c
-alert.c [-G]
+alert.c
 dial.c
-form.c [-G]
+form.c
 jazz.c
-objc.c [-G]
+objc.c
 rast.c
 rect.c
 hand.c
-font.c [-G]
+font.c
 graf.c
 
 ; compiled seperately, because Pure-C otherwise
@@ -40,6 +40,6 @@ arbpt.c
 devinfo.c
 
 slid.c
-list.c [-G]
-fontsel.c [-G]
+list.c
+fontsel.c
 
