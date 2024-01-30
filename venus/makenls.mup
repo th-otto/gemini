@@ -3,5 +3,5 @@
 #
 # Stefan Eissing, 14. Januar 1991
 #
-pipe getcfile ${1}.prj | nlscat - | nlscomp - ${1}.msg
+pipe sed -n 's/^\([^.]*\.c\).*$/\1/p' ${1}.prj | nlscat - | nlscomp - ${1}.msg
 cp gemini.msg ..

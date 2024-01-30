@@ -1,0 +1,19 @@
+nlstest.tos        ; name of executable program is topmost window
+
+=                  ; list of modules follows...
+
+tcstart.o          ; startup code
+
+nlstest.c	(nls.h)
+nlslib.lib
+
+tcbgilib.lib       ; BGI library
+tcfltlib.lib       ; floating point library
+tcstdlib.lib       ; standard library
+
+tcextlib.lib       ; extended library
+tctoslib.lib       ; TOS library
+tcgemlib.lib       ; AES and VDI library
+tclnalib.lib       ; LINE-A library
+
+;>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

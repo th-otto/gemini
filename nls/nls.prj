@@ -4,4 +4,5 @@ nlslib.lib
 .C[-Y]
 .L[-Y]
 =
-nls.c
+nlsutil.c	(nlsdef.h, nls.h, nlsfix.h)
+nlsfix.c    (nlsdef.h, nls.h, nlsfix.h)
